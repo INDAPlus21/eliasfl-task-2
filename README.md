@@ -17,3 +17,12 @@ Assignment: https://kth.kattis.com/problems/kth.javap.kant
 
 Submission proof:
 ![dist_to_side kattis screenshot](dist_to_side/proof.png)
+
+## Cyber-Clara och anmälningslistorna
+
+Crate name (subfolder): [`cyber_clara`](cyber_clara/)
+
+Assignment: https://kth.kattis.com/problems/kth.grupdat.anmalningslistorna
+
+Submission proof:
+![cyber_clara kattis screenshot](cyber_clara/proof.png)
