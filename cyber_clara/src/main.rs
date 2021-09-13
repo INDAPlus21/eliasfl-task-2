@@ -1,34 +1,28 @@
-use std::io::{self, BufRead};
+use std::collections::HashSet;
+use std::io::{stdin, BufRead};
 
 fn main() {
-    let stdin = io::stdin();
+    let _input = stdin();
+    let mut input = _input.lock();
 
-    // Define iterator with input lines from stdin
-    let mut lines = stdin.lock().lines().map(|line| line.ok().unwrap());
+    let mut n_names = String::new();
+    input.read_line(&mut n_names);
+    let n_names: usize = n_names.trim().parse().unwrap();
 
-    // Save number of names to get
-    let n_names: usize = lines
-        .next()
-        .expect("Could not read line")
-        .parse()
-        .expect("First line is not a number");
+    let mut names = Vec::with_capacity(n_names);
+    for _ in 0..n_names {
+        let mut tuple = (String::with_capacity(20), String::with_capacity(20));
+        input.read_line(&mut tuple.0);
+        names.push(tuple);
+    }
+    for i in 0..n_names {
+        input.read_line(&mut names[i].1);
+    }
 
-    // Take `n` first names from lines iterator
-    let first_names: Vec<String> = lines.by_ref().take(n_names).collect();
-    // Take `n` last names from lines iterator
-    let last_names: Vec<String> = lines.take(n_names).collect();
+    let mut set: HashSet<(String, String)> = HashSet::with_capacity(n_names);
+    set.extend(names);
 
-    let mut names: Vec<String> = first_names
-        .iter()
-        // Zip names to get tuple with (first_name, last_name)
-        .zip(last_names.iter())
-        // Concatenate first and last name from zipped tuple
-        .map(|(fname, lname)| format!("{} {}", fname, lname))
-        .collect();
-    names.sort();
-    // Remove adjacent duplicates
-    names.dedup();
-    let unique_names = names.len();
+    // let set: HashSet<_> = names.drain(..n_names).collect();
 
-    println!("{}", unique_names);
+    println!("{}", set.len());
 }
