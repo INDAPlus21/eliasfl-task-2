@@ -1,28 +1,23 @@
 use std::collections::HashSet;
-use std::io::{stdin, BufRead};
+use std::io::{stdin, Read};
 
 fn main() {
     let _input = stdin();
     let mut input = _input.lock();
+    let mut linestr = String::new();
+    input.read_to_string(&mut linestr).unwrap();
+    let mut lines = linestr.lines();
 
-    let mut n_names = String::new();
-    input.read_line(&mut n_names);
-    let n_names: usize = n_names.trim().parse().unwrap();
+    let n_names: usize = lines.next().unwrap().trim().parse().unwrap();
 
-    let mut names = Vec::with_capacity(n_names);
-    for _ in 0..n_names {
-        let mut tuple = (String::with_capacity(20), String::with_capacity(20));
-        input.read_line(&mut tuple.0);
-        names.push(tuple);
-    }
+    let names: Vec<&str> = lines.into_iter().collect();
+    let fnames = &names[..n_names];
+    let lnames = &names[n_names..];
+
+    let mut set = HashSet::with_capacity(n_names);
     for i in 0..n_names {
-        input.read_line(&mut names[i].1);
+        set.insert((fnames[i], lnames[i]));
     }
-
-    let mut set: HashSet<(String, String)> = HashSet::with_capacity(n_names);
-    set.extend(names);
-
-    // let set: HashSet<_> = names.drain(..n_names).collect();
 
     println!("{}", set.len());
 }
