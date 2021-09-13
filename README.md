@@ -2,7 +2,7 @@
 
 ## Cyber-Clara och anmälningslistorna
 
-Crate name (subfolder): [`cyber_clara`](cyber_clara/)
+Source code (in crate directory): [`cyber_clara/src/main.rs`](cyber_clara/src/main.rs)
 
 Assignment: https://kth.kattis.com/problems/kth.grupdat.anmalningslistorna
 
@@ -16,7 +16,7 @@ Submission proof:
 
 ## Summera tal
 
-Crate name (subfolder): [`sum_numbers`](sum_numbers/)
+Source code (in crate directory): [`sum_numbers/src/main.rs`](sum_numbers/src/main.rs)
 
 Assignment: https://kth.kattis.com/problems/kth.javap.sumsort
 
@@ -25,7 +25,7 @@ Submission proof:
 
 ## Avstånd till kanten
 
-Crate name (subfolder): [`dist_to_side`](dist_to_side/)
+Source code (in crate directory): [`dist_to_side/src/main.rs`](dist_to_side/src/main.rs)
 
 Assignment: https://kth.kattis.com/problems/kth.javap.kant
 
@@ -34,7 +34,7 @@ Submission proof:
 
 ## A Different Problem
 
-Crate name (subfolder): [`abs_difference`](abs_difference/)
+Source code (in crate directory): [`abs_difference/src/main.rs`](abs_difference/src/main.rs)
 
 Assignment: https://kth.kattis.com/problems/different
 
